@@ -35,13 +35,13 @@ defineProps({
         <component
           v-if="iconOne"
           :is="iconOne"
-          width="20"
-          height="20"
-          class="text-blue-500"
+          width="24"
+          height="24"
+          class="text-indigo-400"
         />
         <component v-if="iconTwo" :is="iconTwo" width="20" height="20" />
 
-        <span class="text-yellow-500 font-semibold">{{ username }}</span>
+        <span class="text-yellow-500/80 font-semibold">{{ username }}</span>
         <span
           class="bg-gray-800 text-slate-300 px-2.5 py-0.5 rounded text-sm font-bold"
         >
@@ -49,9 +49,9 @@ defineProps({
         </span>
       </div>
       <button
-        class="bg-gray-800 px-4 py-2 rounded-full hover:bg-gray-700 cursor-pointer"
+        class="bg-gray-800 px-4 py-2 rounded-full hover:bg-gray-700 cursor-pointer transition-all duration-200"
       >
-        <ElectricIcon class="text-yellow-500" />
+        <ElectricIcon class="text-indigo-400" />
       </button>
     </div>
 
@@ -66,7 +66,7 @@ defineProps({
         :is="tokenIcon"
         width="28"
         height="28"
-        class="text-amber-500"
+        class="text-amber-600/90"
       />
 
       <span class="text-lg font-bold text-slate-300/80">{{ tokenName }}</span>
@@ -74,7 +74,10 @@ defineProps({
 
     <div class="flex justify-between items-center text-sm font-bold">
       <div>
-        Price: <span class="">{{ price }}</span> MC:
+        <span>Price: </span>
+        <span class="">{{ price }}</span
+        >&nbsp;
+        <span>MC: </span>
         <span
           :class="action === 'Buy' ? 'text-slate-300/80' : 'text-yellow-400/80'"
         >
