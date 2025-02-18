@@ -8,8 +8,8 @@ import TradeCard from "./components/TradeCard.vue";
 <template>
   <div class="flex justify-center items-center min-h-screen bg-gray-900">
     <TradeCard
-      :IconOne="SnowFlakeIcon"
-      :IconTwo="Dolphin"
+      :iconOne="SnowFlakeIcon"
+      :iconTwo="Dolphin"
       username="Salman vai"
       :badgeCount="1"
       action="Sell Partial"
