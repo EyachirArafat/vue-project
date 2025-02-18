@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { type Component, type PropType } from "vue";
+import ElectricIcon from "./ElectricIcon.vue";
 
 defineProps({
-  logoIcon: {
+  // logoIcon: {
+  //   type: Object as PropType<Component>,
+  //   required: false,
+  // },
+  IconOne: {
     type: Object as PropType<Component>,
     required: false,
   },
-  IconOne: {
+  IconTwo: {
     type: Object as PropType<Component>,
     required: false,
   },
@@ -31,43 +36,58 @@ defineProps({
   >
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
-        <!-- tst -->
-        <!-- Use component if provided -->
-        <component v-if="logoIcon" :is="logoIcon" class="logo-icon" />
+        <component
+          v-if="IconOne"
+          :is="IconOne"
+          width="20"
+          height="20"
+          class="text-blue-500"
+        />
+        <component v-if="IconTwo" :is="IconTwo" width="20" height="20" />
 
         <span class="text-yellow-500 font-semibold">{{ username }}</span>
-        <span class="bg-gray-800 text-slate-200 px-2.5 py-0.5 rounded text-sm">
+        <span
+          class="bg-gray-800 text-slate-300 px-2.5 py-0.5 rounded text-sm font-bold"
+        >
           {{ badgeCount }}
         </span>
       </div>
       <button
         class="bg-gray-800 px-4 py-2 rounded-full hover:bg-gray-700 cursor-pointer"
       >
-        ⚡
+        <ElectricIcon class="text-yellow-500" />
       </button>
     </div>
 
     <div class="flex items-center justify-start gap-2 text-sm font-bold">
       <span class="font-bold">{{ action }}</span>
-      <span :class="action === 'Buy' ? 'text-green-500' : 'text-red-500'">
+      <span :class="action === 'Buy' ? 'text-green-500/80' : 'text-red-500'">
         {{ amount }}
       </span>
 
-      <span>{{ tokenIcon }}</span>
+      <component
+        v-if="tokenIcon"
+        :is="tokenIcon"
+        width="28"
+        height="28"
+        class="text-amber-500"
+      />
 
-      <span class="text-lg font-bold text-white">{{ tokenName }}</span>
+      <span class="text-lg font-bold text-slate-300/80">{{ tokenName }}</span>
     </div>
 
     <div class="flex justify-between items-center text-sm font-bold">
       <div>
-        Price: <span class="text-white">{{ price }}</span> MC:
-        <span :class="action === 'Buy' ? 'text-white' : 'text-yellow-400'">
+        Price: <span class="">{{ price }}</span> MC:
+        <span
+          :class="action === 'Buy' ? 'text-slate-300/80' : 'text-yellow-400/80'"
+        >
           {{ marketCap }}
         </span>
       </div>
 
       <div
-        :class="action === 'Buy' ? 'text-green-500' : 'text-red-500'"
+        :class="action === 'Buy' ? 'text-green-500/80' : 'text-red-500/80'"
         class="text-xs text-right"
       >
         {{ time }}
