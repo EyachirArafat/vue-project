@@ -32,14 +32,18 @@ defineProps({
   >
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
-        <component
-          v-if="iconOne"
-          :is="iconOne"
-          width="24"
-          height="24"
-          class="text-indigo-400"
-        />
-        <component v-if="iconTwo" :is="iconTwo" width="20" height="20" />
+        <div class="cursor-pointer hover:scale-110 transition-all duration-200">
+          <component
+            v-if="iconOne"
+            :is="iconOne"
+            width="24"
+            height="24"
+            class="text-indigo-400"
+          />
+        </div>
+        <div class="cursor-pointer hover:scale-110 transition-all duration-200">
+          <component v-if="iconTwo" :is="iconTwo" width="20" height="20" />
+        </div>
 
         <span class="text-yellow-500/80 font-semibold">{{ username }}</span>
         <span
@@ -56,28 +60,32 @@ defineProps({
     </div>
 
     <div class="flex items-center justify-start gap-2 text-sm font-bold">
-      <span class="font-bold">{{ action }}</span>
+      <span class="font-bold hover:text-gray-500">{{ action }}</span>
       <span :class="action === 'Buy' ? 'text-green-500/80' : 'text-red-500'">
         {{ amount }}
       </span>
 
-      <component
-        v-if="tokenIcon"
-        :is="tokenIcon"
-        width="28"
-        height="28"
-        class="text-amber-600/90"
-      />
+      <div class="cursor-pointer hover:scale-125 transition-all duration-200">
+        <component
+          v-if="tokenIcon"
+          :is="tokenIcon"
+          width="28"
+          height="28"
+          class="text-amber-600/90"
+        />
+      </div>
 
       <span class="text-lg font-bold text-slate-300/80">{{ tokenName }}</span>
     </div>
 
     <div class="flex justify-between items-center text-sm font-bold">
       <div>
-        <span>Price: </span>
-        <span class="">{{ price }}</span
-        >&nbsp;
-        <span>MC: </span>
+        <div class="hover:text-gray-500 inline-block">
+          <span>Price: </span>
+          <span>{{ price }}</span>
+        </div>
+        &nbsp;
+        <span class="hover:text-gray-500">MC: </span>
         <span
           :class="action === 'Buy' ? 'text-slate-300/80' : 'text-yellow-400/80'"
         >
