@@ -3,15 +3,11 @@ import { type Component, type PropType } from "vue";
 import ElectricIcon from "./ElectricIcon.vue";
 
 defineProps({
-  // logoIcon: {
-  //   type: Object as PropType<Component>,
-  //   required: false,
-  // },
-  IconOne: {
+  iconOne: {
     type: Object as PropType<Component>,
     required: false,
   },
-  IconTwo: {
+  iconTwo: {
     type: Object as PropType<Component>,
     required: false,
   },
@@ -37,13 +33,13 @@ defineProps({
     <div class="flex items-center justify-between">
       <div class="flex items-center space-x-2">
         <component
-          v-if="IconOne"
-          :is="IconOne"
+          v-if="iconOne"
+          :is="iconOne"
           width="20"
           height="20"
           class="text-blue-500"
         />
-        <component v-if="IconTwo" :is="IconTwo" width="20" height="20" />
+        <component v-if="iconTwo" :is="iconTwo" width="20" height="20" />
 
         <span class="text-yellow-500 font-semibold">{{ username }}</span>
         <span
